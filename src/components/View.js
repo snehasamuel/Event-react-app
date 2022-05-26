@@ -1,22 +1,32 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 import Header from './Header'
 
 const View = () => {
-    var viewEvents=[{"name":"hdfvdsh","date":"1/12/2022","venue":"mznbccc","organiser":"zdjgcudfchg","contact":"576541646"} ,
-    {"name":"zhjvchjdzbc","date":"5/5/2022","venue":"jhgdfjsd","organiser":"zcgzdjzd","contact":"4974616"},
-    {"name":"zycgyudg","date":"8/8/2022","venue":"sjhgkj","organiser":"hdcsdjvds","contact":"5464678956"} ,
-    {"name":"naoiuoihigme","date":"7/7/2023","venue":"sgrfuis","organiser":"dhjvgc","contact":"89461613"} ,
-    {"name":"guitgui","date":"4/7/2022","venue":"t8yuyi","organiser":"yghfyfg","contact":"4654545"} ,
-    {"name":"namiutiute","date":"29/9/2022","venue":"ur6tr","organiser":"jfyyfyu","contact":"5576545"}  ]
+    var [viewEvents,setView]=useState([])
+    var [load,setLoad]=useState(true)
+
+    axios.get("http://localhost:7000/api/viewevent").then((response)=>{
+console.log(response.data)
+setView(response.data)
+setLoad(false)
+    })
+    
   return (
     <div><Header/>
 <br></br>
 <div className="container">
     <div className="row">
         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-
-        <table class="table table-warning table-striped">
-  <thead>
+{load ?
+  <div class="d-flex justify-content-center">
+  <div class="spinner-border text-warning" role="status">
+    <span className="sr-only"></span>
+  </div>
+</div>
+:
+  <table className="table table-warning table-striped">
+  <thead className='table-primary'>
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Date</th>
@@ -32,12 +42,13 @@ return <tr>
 <td>{value.date}</td>
 <td>{value.venue}</td>
 <td>{value.organiser}</td>
-<td>{value.contact}</td>
+<td>{value.number}</td>
 </tr>
    })}
     
   </tbody>
-</table>
+</table>}
+        
     </div>
     </div>
     </div>
