@@ -21,12 +21,12 @@ setLoad(false)
 {load ?
   <div class="d-flex justify-content-center">
   <div class="spinner-border text-warning" role="status">
-    <span class="sr-only">Loading...</span>
+    <span className="sr-only"></span>
   </div>
 </div>
 :
-  <table class="table table-warning table-striped">
-  <thead>
+  <table className="table table-warning table-striped">
+  <thead className='table-primary'>
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Date</th>
