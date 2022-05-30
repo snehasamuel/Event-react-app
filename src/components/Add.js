@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import Header from './Header'
 
@@ -9,8 +10,20 @@ const Add = () => {
     var [contact,setContact]=useState("")
 
     const registerEvent=(()=>{
-        const data={"name":name,"date":date,"venue":venue,"organiser":organiser,"contact":contact} 
-        console.log(data)
+        const data={"name":name,"date":date,"venue":venue,"organiser":organiser,"number":contact} 
+        
+       axios.post("http://localhost:7000/api/addevent",data).then((response)=>{
+        console.log(response.data) 
+        if(response.data.status=="success")
+        {
+            alert("data inserted suucessfully!!")
+        }
+        else
+        {
+            alert("data insertion failed!!")
+        }
+
+        })
     })
   return (
     <div>
