@@ -26,7 +26,35 @@ const Search = () => {
             </div>
         </div>
     </div>
+
+
+<div className='row g-3'>
+<div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+            <div className="row g-3">
+                <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                    <label for="" className="form-label">Date of Event</label>
+                    <input type="date" className="form-control"/>
+                </div>
+                <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                    <label for="" className="form-label">Date of Event</label>
+                    <input  type="date" className="form-control"/>
+                </div>
+                <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                    <label for="" className="form-label">Date of Event</label>
+                    <input  type="date" className="form-control"/>
+                </div>
+                <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                    <label for="" className="form-label">Date of Event</label>
+                    <input  type="date" className="form-control"/>
+                </div>
+                <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                    <button onClick={searchEvent} className="btn btn-warning">SEARCH</button>
+                </div>
 </div>
+
+</div>
+    </div>
+    </div>
     </div>
   )
 }
