@@ -11,6 +11,22 @@ console.log(response.data)
 setView(response.data)
 setLoad(false)
     })
+
+    const deleteApi=(id)=>{
+      const data={"_id":id}
+      axios.post("http://localhost:7000/api/delete",data).then((response)=>{
+console.log(response.data)
+if(response.data.status=="success")
+{
+  alert("successfully deleted")
+
+}
+else{
+  alert("failed to delete")
+}
+      })
+
+    }
     
   return (
     <div><Header/>
@@ -33,6 +49,7 @@ setLoad(false)
       <th scope="col">Venue</th>
       <th scope="col">Organiser</th>
       <th scope="col">Contact Number</th>
+      <th scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -43,6 +60,7 @@ return <tr>
 <td>{value.venue}</td>
 <td>{value.organiser}</td>
 <td>{value.number}</td>
+<td><button onClick={()=>{deleteApi(value._id)}} className='btn btn-danger'>DELETE</button></td>
 </tr>
    })}
     
